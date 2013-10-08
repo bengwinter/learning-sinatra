@@ -22,28 +22,43 @@ get '/advanced_time' do
 	"<h1>The current time is #{Time.now}</h1>"
 end
 
-get '/maths/add/:x/:y' do
+get '/maths/:function/:x/:y' do
 	x = params[:x].to_f
 	y = params[:y].to_f
-	(x + y).to_s
+	
+	if params[:function] == "add"
+		(x + y).to_s
+	elsif params[:function] == "subtract"
+		(x - y).to_s
+	elsif params[:function] == "multiply"
+		(x * y).to_s
+	elsif params[:function] == "divide"
+		(x / y).to_s
+	else
+		"That is not a valid function"
+	end
+
 end
 
-get '/maths/subtract/:x/:y' do
-	x = params[:x].to_f
-	y = params[:y].to_f
-	(x - y).to_s
-end
+		
 
-get '/maths/multiply/:x/:y' do
-	x = params[:x].to_f
-	y = params[:y].to_f
-	(x * y).to_s
-end
 
-get '/maths/divide/:x/:y' do
-	x = params[:x].to_f
-	y = params[:y].to_f
-	(x / y).to_s
-end
+# 	(x + y).to_s
+# end
+
+# get '/maths/subtract/:x/:y' do
+# 	x = params[:x].to_f
+# 	y = params[:y].to_f
+# end
+
+# get '/maths/multiply/:x/:y' do
+# 	x = params[:x].to_f
+# 	y = params[:y].to_f
+# end
+
+# get '/maths/divide/:x/:y' do
+# 	x = params[:x].to_f
+# 	y = params[:y].to_f
+# end
 
 

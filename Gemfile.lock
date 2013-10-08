@@ -34,6 +34,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  multi_json
   pry
   sinatra
   sinatra-reloader
